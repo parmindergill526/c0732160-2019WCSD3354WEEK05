@@ -44,6 +44,10 @@ namespace week5
             dog_name = name;
             dog_breed = breed;
         }
+        public dog()
+        {
+
+        }
 
         public string dog_name;
         public string dog_breed;
@@ -52,11 +56,36 @@ namespace week5
     }
     class birthdayParty
     {
-        public dog fifo;
-        public dog sandeep;
-        public dog sadeala;
-        public dog lander;
+        public dog fifi;
+        public dog peanut;
+        public dog clarence;
+        public dog roy;
         public dog head;
         public dog tail;
+        public dog temporary;
+
+        public void setupPartyList()
+        {
+            peanut = new dog("Peanut", "Bichon");
+            fifi = new dog("Fifi", "Poodle");
+            clarence = new dog("Clarence", "German Sheppard");
+            roy = new dog("Roy", "Beagle");
+
+            peanut.previous_dog = null;
+            peanut.next_dog = fifi;
+            fifi.previous_dog = peanut;
+            fifi.next_dog = clarence;
+            clarence.previous_dog = fifi;
+            clarence.next_dog = roy;
+            roy.previous_dog = clarence;
+            roy.next_dog = null;
+            head = peanut;
+            tail = roy;
+
+        }
+        public string printParyList()
+        {
+            string inviteList
+        }
     }
 }

@@ -12,6 +12,8 @@ namespace week5
         {
             var a = new TestQuestion2();
             a.PlayingWithForLoops();
+            var b = new birthdayParty();
+            b.printPartyList();
             Console.ReadLine();
         }
     }
@@ -83,9 +85,16 @@ namespace week5
             tail = roy;
 
         }
-        public string printParyList()
+        public string printPartyList()
         {
-            string inviteList
+            string inviteList = "*------*";
+            temporary = head;
+            while (temporary.next_dog != null)
+            {
+                inviteList += temporary.dog_name + " * --- * ";
+                temporary = temporary.next_dog;
+            }
+            return inviteList;
         }
     }
 }

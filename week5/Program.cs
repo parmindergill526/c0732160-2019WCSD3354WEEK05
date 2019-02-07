@@ -11,9 +11,11 @@ namespace week5
         static void Main(string[] args)
         {
             var a = new TestQuestion2();
-            a.PlayingWithForLoops();
+           // a.PlayingWithForLoops();
             var b = new birthdayParty();
-            b.printPartyList();
+            b.setupPartyList();
+            Console.WriteLine(b.printPartyList());
+            Console.WriteLine(b.printPartyList_reverse());
             Console.ReadLine();
         }
     }
@@ -23,7 +25,7 @@ namespace week5
         public void PlayingWithForLoops()
         {
             // write a for loop to add 10 numbers
-            for (;MyMethod() ; )
+            while (MyMethod())
             {
                 if (myFavouiteVariable > 10)
                 {
@@ -41,7 +43,7 @@ namespace week5
     }
     class dog
     {
-        public dog(String name, string breed)
+        public dog(string name, string breed)
         {
             dog_name = name;
             dog_breed = breed;
@@ -62,6 +64,8 @@ namespace week5
         public dog peanut;
         public dog clarence;
         public dog roy;
+        public dog guisselle;
+        public dog lulu;
         public dog head;
         public dog tail;
         public dog temporary;
@@ -72,6 +76,8 @@ namespace week5
             fifi = new dog("Fifi", "Poodle");
             clarence = new dog("Clarence", "German Sheppard");
             roy = new dog("Roy", "Beagle");
+            guisselle = new dog("Guisselle", "pista");
+            lulu = new dog("Lulu", "Libra");
 
             peanut.previous_dog = null;
             peanut.next_dog = fifi;
@@ -80,9 +86,13 @@ namespace week5
             clarence.previous_dog = fifi;
             clarence.next_dog = roy;
             roy.previous_dog = clarence;
-            roy.next_dog = null;
+            roy.next_dog = guisselle;
+            guisselle.previous_dog = roy;
+            guisselle.next_dog = lulu;
+            lulu.previous_dog = guisselle;
+            lulu.next_dog = null;
             head = peanut;
-            tail = roy;
+            tail = lulu;
 
         }
         public string printPartyList()
@@ -94,6 +104,20 @@ namespace week5
                 inviteList += temporary.dog_name + " * --- * ";
                 temporary = temporary.next_dog;
             }
+            inviteList += temporary.dog_name + " * --- * ";
+            return inviteList;
+        }
+
+        public string printPartyList_reverse()
+        {
+            string inviteList = "*------*";
+            temporary = tail;
+            while (temporary.previous_dog != null)
+            {
+                inviteList += temporary.dog_name + " * --- * ";
+                temporary = temporary.previous_dog;
+            }
+            inviteList += temporary.dog_name + " * --- * ";
             return inviteList;
         }
     }

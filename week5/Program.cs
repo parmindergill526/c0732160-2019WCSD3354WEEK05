@@ -25,6 +25,7 @@ namespace week5
             {
                 if (myFavouiteVariable > 10)
                 {
+                    Console.WriteLine("I am so out of here");
                     break;
                 }
                 Console.WriteLine("i am in the for loop");
@@ -35,5 +36,27 @@ namespace week5
             myFavouiteVariable++;
             return true;
         }
+    }
+    class dog
+    {
+        public dog(String name, string breed)
+        {
+            dog_name = name;
+            dog_breed = breed;
+        }
+
+        public string dog_name;
+        public string dog_breed;
+        public dog next_dog;
+        public dog previous_dog;
+    }
+    class birthdayParty
+    {
+        public dog fifo;
+        public dog sandeep;
+        public dog sadeala;
+        public dog lander;
+        public dog head;
+        public dog tail;
     }
 }
